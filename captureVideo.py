@@ -9,7 +9,7 @@ def captureVideo(detect_flg):
     ret, frame = cap.read()
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     if detect_flg == 1:
-      fd.objDetection(frame)
+      frame = fd.objDetection(frame)
     # 表示
     cv2.imshow('frame', frame)
     cv2.imshow('gray', gray)

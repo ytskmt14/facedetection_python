@@ -35,7 +35,9 @@ def objDetection(img):
   if len(objs) > 0:
     for rect in objs:
       #検出物体を矩形で囲む
-      cv2.rectangle(img, tuple(rect[0:2]), tuple(rect[0:2] + rect[2:4]), (255, 0, 0) ,2)
+      # cv2.rectangle(img, tuple(rect[0:2]), tuple(rect[0:2] + rect[2:4]), (255, 0, 0) ,2)
+      dst_gray, dst_color = cv2.pencilSketch(img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] + rect[2]], sigma_s=60, sigma_r=0.07, shade_factor=0.05)
+      img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] + rect[2]] = dst_color
   return img
 
 
